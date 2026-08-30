@@ -412,7 +412,7 @@ export default function App() {
               if (el) labelEls.current.set(p.id, el);
               else labelEls.current.delete(p.id);
             }}
-            className="label-tag absolute left-0 top-0 flex items-center gap-1.5"
+            className="label-tag absolute left-0 top-0 flex items-stretch gap-1.5"
             style={{ opacity: 0 }}
           >
             <span
@@ -425,8 +425,21 @@ export default function App() {
             >
               {p.num}
             </span>
-            <span className="whitespace-nowrap font-mono text-[10px] uppercase tracking-wide text-dim">
-              {p.nombre.split("—")[0].trim()}
+            <span
+              className="flex flex-col justify-center gap-px border border-line/70 bg-void/75 px-1.5 py-0.5 backdrop-blur-[2px]"
+              style={{ borderColor: selected === p.id ? `${p.accent}88` : undefined }}
+            >
+              <span className="whitespace-nowrap font-mono text-[10px] uppercase leading-[1.25] tracking-wide text-dim">
+                {p.nombre.split("—")[0].trim()}
+              </span>
+              <span className="whitespace-nowrap font-mono text-[8.5px] uppercase leading-[1.25] tracking-wide text-cryo/90">
+                <i className="mr-1 not-italic opacity-60">EN</i>
+                {p.en}
+              </span>
+              <span className="whitespace-nowrap font-mono text-[8.5px] uppercase leading-[1.25] tracking-wide text-hot/90">
+                <i className="mr-1 not-italic opacity-60">DE</i>
+                {p.de}
+              </span>
             </span>
           </div>
         ))}
@@ -552,8 +565,15 @@ export default function App() {
               >
                 {p.num}
               </span>
-              <span className={`font-display text-[12px] leading-tight ${selected === p.id ? "text-ink" : "text-dim"}`}>
-                {p.nombre}
+              <span className="min-w-0 flex-1">
+                <span className={`block font-display text-[12px] leading-tight ${selected === p.id ? "text-ink" : "text-dim"}`}>
+                  {p.nombre}
+                </span>
+                <span className="mt-0.5 block truncate font-mono text-[8.5px] uppercase leading-tight tracking-wide">
+                  <span className="text-cryo/80">{p.en}</span>
+                  <span className="mx-1 text-dim/50">·</span>
+                  <span className="text-hot/80">{p.de}</span>
+                </span>
               </span>
               {p.interno && <span className="ml-auto h-1.5 w-1.5 shrink-0 rounded-full bg-cryo/80" title="Visible en corte" />}
             </button>
@@ -577,7 +597,17 @@ export default function App() {
               </span>
               <div className="min-w-0">
                 <h2 className="font-display text-[15px] font-bold leading-tight">{spec.nombre}</h2>
-                <p className="mt-0.5 font-mono text-[9.5px] uppercase tracking-[0.18em]" style={{ color: spec.accent }}>
+                <p className="mt-1 font-mono text-[9px] uppercase leading-[1.5] tracking-[0.12em]">
+                  <span className="text-cryo/85">
+                    <i className="mr-1 not-italic text-[7.5px] opacity-60">EN</i>
+                    {spec.en}
+                  </span>
+                  <span className="block text-hot/85">
+                    <i className="mr-1 not-italic text-[7.5px] opacity-60">DE</i>
+                    {spec.de}
+                  </span>
+                </p>
+                <p className="mt-1 font-mono text-[9.5px] uppercase tracking-[0.18em]" style={{ color: spec.accent }}>
                   {spec.tag}
                 </p>
               </div>
@@ -661,8 +691,15 @@ export default function App() {
 
       {/* cursor de pieza */}
       {hovered && hovered !== selected && (
-        <div className="pointer-events-none absolute bottom-12 left-1/2 z-10 -translate-x-1/2 border border-line bg-panel/90 px-3 py-1 font-mono text-[10.5px] uppercase tracking-wider text-amber backdrop-blur-sm md:bottom-14">
-          {PART_BY_ID[hovered]?.num} · {PART_BY_ID[hovered]?.nombre}
+        <div className="pointer-events-none absolute bottom-12 left-1/2 z-10 -translate-x-1/2 border border-line bg-panel/90 px-3 py-1.5 text-center font-mono uppercase tracking-wider backdrop-blur-sm md:bottom-14">
+          <p className="whitespace-nowrap text-[10.5px] text-amber">
+            {PART_BY_ID[hovered]?.num} · {PART_BY_ID[hovered]?.nombre}
+          </p>
+          <p className="mt-0.5 whitespace-nowrap text-[8.5px] leading-tight">
+            <span className="text-cryo/85">{PART_BY_ID[hovered]?.en}</span>
+            <span className="mx-1 text-dim/50">·</span>
+            <span className="text-hot/85">{PART_BY_ID[hovered]?.de}</span>
+          </p>
         </div>
       )}
     </div>

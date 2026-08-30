@@ -7,6 +7,8 @@ export interface PartSpec {
   id: string;
   num: string;
   nombre: string;
+  en: string;
+  de: string;
   tag: string;
   accent: string;
   highlight: { value: string; label: string };
@@ -20,6 +22,8 @@ export const PARTS: PartSpec[] = [
     id: "cono",
     num: "01",
     nombre: "Cono de proa y sección delantera",
+    en: "Nose cone & forward section",
+    de: "Bugkonus & vordere Sektion",
     tag: "ESTRUCTURA PRIMARIA · TPS",
     accent: "#ffb454",
     highlight: { value: "1 430 °C", label: "pico térmico en el lado de barlovento" },
@@ -63,6 +67,8 @@ export const PARTS: PartSpec[] = [
     id: "flaps_del",
     num: "02",
     nombre: "Flaps delanteros (×2)",
+    en: "Forward flaps (×2)",
+    de: "Vordere Klappen (×2)",
     tag: "CONTROL AERODINÁMICO · ACTUACIÓN",
     accent: "#ffb454",
     highlight: { value: "EHA", label: "actuación electro-hidroestática redundante" },
@@ -105,6 +111,8 @@ export const PARTS: PartSpec[] = [
     id: "flaps_tra",
     num: "03",
     nombre: "Flaps traseros (×2)",
+    en: "Aft flaps (×2)",
+    de: "Heckklappen (×2)",
     tag: "CONTROL DE DESCENSO · E-HIDRÁULICO",
     accent: "#ffb454",
     highlight: { value: "≈ 3.3 m", label: "envergadura — las mayores superficies de control" },
@@ -147,6 +155,8 @@ export const PARTS: PartSpec[] = [
     id: "escudo",
     num: "04",
     nombre: "Escudo térmico (TPS)",
+    en: "Heat shield (TPS)",
+    de: "Hitzeschild (TPS)",
     tag: "PROTECCIÓN TÉRMICA · REENTRADA",
     accent: "#ff6b3d",
     highlight: { value: "≈ 18 000", label: "tejas hexagonales fijadas con pines" },
@@ -189,6 +199,8 @@ export const PARTS: PartSpec[] = [
     id: "fuselaje",
     num: "05",
     nombre: "Fuselaje y estructura de anillos",
+    en: "Airframe & ring structure",
+    de: "Rumpf- & Ringstruktur",
     tag: "ESTRUCTURA PRIMARIA · ACERO 301/304L",
     accent: "#e9edf4",
     highlight: { value: "304L", label: "acero inoxidable — no aluminio ni composite" },
@@ -232,6 +244,8 @@ export const PARTS: PartSpec[] = [
     id: "tanques",
     num: "06",
     nombre: "Tanques criogénicos LOX / LCH4",
+    en: "LOX / LCH4 cryogenic tanks",
+    de: "Kryotanks LOX / LCH4",
     tag: "SISTEMA DE PROPELENTE · CRIOGENIA",
     accent: "#6fd3e7",
     highlight: { value: "≈ 1 200 t", label: "propelente: ~930 t LOX + ~270 t CH4" },
@@ -285,6 +299,8 @@ export const PARTS: PartSpec[] = [
     id: "puerta",
     num: "07",
     nombre: "Compuerta de carga útil",
+    en: "Payload bay door",
+    de: "Nutzlastbucht-Klappe",
     tag: "MECANISMO · BAHÍA DE CARGA",
     accent: "#ffb454",
     highlight: { value: "≈ 7 × 6 m", label: "panel curvo integrado en la piel" },
@@ -326,6 +342,8 @@ export const PARTS: PartSpec[] = [
     id: "raptor",
     num: "08",
     nombre: "Sección de propulsión — 6 × Raptor 3",
+    en: "Propulsion section — 6 × Raptor 3",
+    de: "Antriebssektion — 6 × Raptor 3",
     tag: "PROPULSIÓN · FFSC · CH4/LOX",
     accent: "#ff6b3d",
     highlight: { value: "330 bar", label: "presión de cámara — récord en motor de vuelo" },
@@ -370,6 +388,8 @@ export const PARTS: PartSpec[] = [
     id: "puck",
     num: "09",
     nombre: "Estructura de empuje (thrust puck)",
+    en: "Thrust structure (thrust puck)",
+    de: "Schubstruktur (Thrust Puck)",
     tag: "TRANSMISIÓN DE CARGAS · ESTRUCTURA",
     accent: "#e9edf4",
     highlight: { value: "≈ 15.5 MN", label: "empuje total transmitido al fuselaje" },
@@ -406,6 +426,8 @@ export const PARTS: PartSpec[] = [
     id: "lineas",
     num: "10",
     nombre: "Líneas de propelente",
+    en: "Propellant feed lines",
+    de: "Treibstoffleitungen",
     tag: "ALIMENTACIÓN CRIOGÉNICA",
     accent: "#6fd3e7",
     highlight: { value: "−183 °C", label: "LOX criogénico del tanque al motor" },
